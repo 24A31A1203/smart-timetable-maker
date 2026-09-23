@@ -1,0 +1,9 @@
+{% extends "base.html" %}{% block content %}
+<section class="hero"><div class="eyebrow">AI + OPTIMIZATION</div><h1>Build conflict-free college timetables faster.</h1><p>Generate, review, request changes, approve and publish a timetable from one application.</p><a class="primary big" href="#roles">Open Application →</a></section>
+<section id="roles" class="role-grid">
+<a href="{{url_for('admin_login')}}" class="role admin"><div class="icon">A</div><h2>Administrator</h2><p>Sign up your college, verify email and phone, configure rooms, labs, departments, teachers and subjects, then generate and publish schedules.</p><span>Admin Portal →</span></a>
+<a href="{{url_for('teacher_login')}}" class="role"><div class="icon">T</div><h2>Teacher</h2><p>Log in using college credentials, receive timetable notifications, approve the schedule or request a change.</p><span>Teacher Login →</span></a>
+<a href="{{url_for('student_login')}}" class="role"><div class="icon">S</div><h2>Student</h2><p>Log in using college, roll number, password and college access OTP to view the published timetable.</p><span>Student Login →</span></a>
+</section>
+<div class="feature-strip"><div><b>01</b><span>Configure requirements</span></div><div><b>02</b><span>Generate timetable</span></div><div><b>03</b><span>Teacher review</span></div><div><b>04</b><span>Finalize & publish</span></div></div>
+{% endblock %}

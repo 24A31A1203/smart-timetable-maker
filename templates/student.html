@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block content %}
+<div class="page-head"><div><div class="eyebrow">STUDENT PORTAL</div><h1>{{student.name}}</h1><p>{{student.roll}} • Section {{student.section}}</p></div><span class="pill">PUBLISHED</span></div>
+{% for n in notes %}<div class="notification">🔔 {{n.message}}</div>{% endfor %}
+<section class="panel"><h2>Today's timetable</h2>{% set tt=rows %}{% include "table.html" %}{% if not rows %}<div class="empty">Your administrator has not published today's timetable yet.</div>{% endif %}</section>
+{% endblock %}

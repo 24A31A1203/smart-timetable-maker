@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block content %}
+<div class="page-head"><div><div class="eyebrow">TEACHER PORTAL</div><h1>Hello, {{teacher}}</h1><p>Review today's timetable sent by your administrator.</p></div>{% if review %}<span class="review {{review.status|lower}}">{{review.status}}</span>{% endif %}</div>
+{% for n in notes %}<div class="notification">🔔 {{n.message}}</div>{% endfor %}
+<section class="panel"><h2>Today's timetable</h2>{% set tt=rows %}{% include "table.html" %}{% if not rows %}<div class="empty">Your administrator has not sent a timetable yet.</div>{% endif %}</section>
+{% if review and review.status=="PENDING" %}<div class="two"><section class="decision approve"><h2>Everything is correct?</h2><p>Approve this timetable and notify the administrator.</p><form method="post" action="{{url_for('teacher_review')}}"><input type="hidden" name="decision" value="approve"><button class="primary">✓ Approve Timetable</button></form></section><section class="decision"><h2>Need a change?</h2><p>Describe the conflict in natural language.</p><form method="post" action="{{url_for('teacher_review')}}"><input type="hidden" name="decision" value="request"><textarea name="message" required placeholder="Example: I can't take Monday 9-10 AM."></textarea><button class="secondary">Send Change Request</button></form></section></div>{% endif %}
+{% endblock %}
